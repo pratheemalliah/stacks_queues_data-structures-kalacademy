@@ -1,0 +1,16 @@
+{
+    function reverseStack(arr) {
+        var tempArr = [];
+
+        while(arr.length) {
+            tempArr.push(arr.pop());
+        }
+
+        while(tempArr.length) {
+            arr.push(tempArr.shift());
+        }
+
+       return arr;
+    }
+    reverseStack([1,2,3,4,5])
+}

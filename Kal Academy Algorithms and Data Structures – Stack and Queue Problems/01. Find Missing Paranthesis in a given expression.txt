@@ -1,0 +1,24 @@
+{
+    function findMissingParan(str) {
+      let counter=0,stack=[],len = str.length;
+      for(let i=0;i<len;i++) {
+          if(str[i]=='(') {
+              counter++;
+              stack.push(str[i]);
+          } else if(str[i] == ')') {
+              let temp = stack.pop();
+              counter--;
+              if(!temp&&i==len-1) {
+                  return "Missing "+Math.abs(counter)+" open paranthesis!"
+              }
+          }
+      }
+
+      if(stack.length>0) {
+          return "Missing "+stack.length+" close paranthesis";
+      } 
+      return "No missing Paranthesis!"
+    }
+    let str = ")(";
+    findMissingParan(str);
+}

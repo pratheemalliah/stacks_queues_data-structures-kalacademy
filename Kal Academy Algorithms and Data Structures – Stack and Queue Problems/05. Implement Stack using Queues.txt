@@ -1,0 +1,43 @@
+{    
+ function stackUsingQueues() {
+        let top, q1=[],q2=[];
+ 
+        function push(element) {
+            q1.push(element);
+            top = element;
+            console.log("Pushed top element---"+top);
+        }
+
+        function isEmpty() {
+            console.log("empty?--"+q1.length===0);
+        }
+
+        function size() {
+            console.log("size--"+q1.length);
+        }
+
+        function pop() {
+           while(q1.length>1) {
+               q2.push(q1.shift());
+           }
+          console.log("pop()---"+q1.pop());
+           let temp = q1;
+           q1=q2;
+           q2=temp;
+        }
+
+        push('a');
+        push('b');
+        push('c');
+        pop();
+        push('d');
+        size();
+        pop();
+        pop();
+        isEmpty();
+        push('g');
+        push('f');
+        size();
+    }
+    stackUsingQueues();
+}

@@ -1,0 +1,30 @@
+{
+    function nextGreaterElement(arr) {
+       if(arr.length == 0 ) {
+           return "No array";
+       }
+
+       let stack =[];
+       stack.push(arr[0]);
+       for(let i=1;i<arr.length;i++) {
+           let element = arr[i];
+           while(stack.length !==0) {
+              let top = stack.pop();
+              if(top<element) {
+                  console.log(top +" ---> " + element);
+              } else {
+                  stack.push(top);
+                  break;
+              }
+           }
+           stack.push(element); 
+       }
+       while(stack.length !== 0 ) {
+           console.log(stack.pop() +" ---> -1");
+       }
+      
+    }
+
+    nextGreaterElement([5, 3, 2, 10,6, 8, 1, 4, 12, 7])
+
+}
